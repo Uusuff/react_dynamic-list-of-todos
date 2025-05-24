@@ -36,10 +36,9 @@ export const App: React.FC = () => {
     }
 
     if (query.trim()) {
-      filtered = filtered.filter((todo) =>
-        todo.title.toLowerCase().includes(query.toLowerCase()),
-      );
+      filtered = filtered.filter((todo) => todo.title.includes(query));
     }
+
     setVisibleTodos(filtered);
   }, [allTodos, selectedFilter, query]);
 

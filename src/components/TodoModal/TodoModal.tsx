@@ -21,7 +21,7 @@ export const TodoModal: React.FC<TodoModalProps> = ({
   useEffect(() => {
     if (todo?.userId !== undefined) {
       getUser(todo.userId)
-        .then((user) => {
+        .then(user => {
           setSelectedUser(user);
         })
         .finally(() => {
