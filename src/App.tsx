@@ -30,13 +30,15 @@ export const App: React.FC = () => {
     let filtered = [...allTodos];
 
     if (selectedFilter === 'completed') {
-      filtered = filtered.filter((todo) => todo.completed);
+      filtered = filtered.filter(todo => todo.completed);
     } else if (selectedFilter === 'active') {
-      filtered = filtered.filter((todo) => !todo.completed);
+      filtered = filtered.filter(todo => !todo.completed);
     }
 
     if (query.trim()) {
-      filtered = filtered.filter((todo) => todo.title.includes(query));
+      filtered = filtered.filter(todo =>
+        todo.title.toLowerCase().includes(query.toLowerCase()),
+      );
     }
 
     setVisibleTodos(filtered);
